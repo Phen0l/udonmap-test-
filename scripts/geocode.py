@@ -36,7 +36,7 @@ def main():
                 with urllib.request.urlopen(req, timeout=20) as resp:
                     found = json.loads(resp.read().decode("utf-8"))
                 last_request = time.time()
-                if found and ("香川県" in found[0].get("display_name", "") or "Kagawa" in found[0].get("display_name", "")):
+                if found:
                     result = {"lat": float(found[0]["lat"]), "lng": float(found[0]["lon"])}
                 else:
                     result = None
